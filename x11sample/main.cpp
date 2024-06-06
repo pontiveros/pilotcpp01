@@ -11,8 +11,8 @@
 #include <string.h>
 #include <xcb/xcb.h>
 
-#define WIDTH  800
-#define HEIGHT 600
+#define WIDTH  1024
+#define HEIGHT 768
 
 static xcb_gc_t gc_font_get (xcb_connection_t *c,
                              xcb_screen_t     *screen,
@@ -290,7 +290,7 @@ int main () {
     cookie_window = xcb_create_window_checked (c,
                                                 screen->root_depth,
                                                 window, screen->root,
-                                                20, 200, WIDTH, HEIGHT,
+                                                0, 0, screen->width_in_pixels, screen->height_in_pixels,
                                                 0, XCB_WINDOW_CLASS_INPUT_OUTPUT,
                                                 screen->root_visual,
                                                 mask, values);

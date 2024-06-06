@@ -9,7 +9,7 @@
 prog01: main.cpp
 	#mkdir bin; \
 	#g++ -std=c++11 -c -o ./build/main.o main.cpp
-	gcc -Wall main.cpp -o prog01 `pkg-config --cflags --libs xcb`
+	gcc -Wall main.cpp -o test-x11 `pkg-config --cflags --libs xcb`
 
 clean:
 #	rm -rf ./build/*o ./bin/pilot01; \
