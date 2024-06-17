@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
     stream << message;
 
     // do not start the eventloop as this would wait for external IO
-    // app.exec();
+    app.exec();
 
     // no need to close file, closes automatically when scope ends
     return 0;
