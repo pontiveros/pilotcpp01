@@ -44,7 +44,7 @@ int main(void) {
    int rectX = (WINDOW_WIDTH / 4);
    int rectY = (WINDOW_HEIGHT / 4);
    
-   XAllocNamedColor(d, DefaultColormap(d, s),"red", &color,&dummy);
+   XAllocNamedColor(d, DefaultColormap(d, s),"blue", &color,&dummy);
    
    fontInfo = XLoadQueryFont(d,"6x10");
 
@@ -57,14 +57,29 @@ int main(void) {
    XMapWindow(d,w);
    XFlush(d);
    
-   while (1) {
-      XNextEvent(d, &e);
+   int running = 1;
+   while (running != 0) {
+      int nResult = XNextEvent(d, &e);
+      printf("nResult: %d...\n", nResult);
+      printf("e.type: %d\n", e.type);
       if (e.type == Expose) {
          XDrawString(d, w, DefaultGC(d, s), rectX + 100, 50, msg, strlen(msg));
-         XFillRectangle(d, w, gc, rectX, rectY, rectWidth, rectHeight);
+         // XFillRectangle(d, w, gc, rectX, rectY, rectWidth, rectHeight);
+         for (int i = 0; i < 100; i++) {
+            XDrawPoint (d, w, gc, rectX, rectY + i);
+         }
+
+         // XFillRectangle(d, w, gc, rectX + 40, rectY + 40, rectWidth, rectHeight);
       }
-      if (e.type == KeyPress)
-         break;
+      // if (e.type == KeyPress)
+      //    break;
+
+      if (e.type == KeyRelease) {
+         printf("keymap-type: %d\n", e.xkeymap.type);
+         printf("xkey-keycode: %u\n", e.xkey.keycode);
+         printf("xkey-state: %u\n", e.xkey.state);
+         running = 0;
+      }
    }
 
    XCloseDisplay(d);
