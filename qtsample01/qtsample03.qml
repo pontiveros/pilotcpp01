@@ -8,10 +8,10 @@ Window {
 
     MediaPlayer {
         id: player
-        // source: "file:////Users/pontiveros/Development/training/cpp/pilotcpp01/qtsample01/UsersBouncing.mp4"
         source: "./usersbouncing.mov"
         audioOutput: AudioOutput {}
         videoOutput: videoOutput
+        loops: MediaPlayer.Infinite
     }
 
     VideoOutput {
