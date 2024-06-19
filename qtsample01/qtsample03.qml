@@ -9,7 +9,7 @@ Rectangle {
 
     MediaPlayer {
         id: player
-        source: "./video-01.mov"
+        source: "./video-03.mp4"
         videoOutput: videoOutput
         loops: MediaPlayer.Infinite
     }
