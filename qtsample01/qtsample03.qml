@@ -1,15 +1,15 @@
-import QtQuick
+import QtQuick 2.5
+// import QtMultimedia 5.15
 import QtMultimedia
 
-Window {
-    width: 600
+Rectangle {
+    width: 1024
     height: 600
     visible: true
 
     MediaPlayer {
         id: player
-        source: "./usersbouncing.mov"
-        audioOutput: AudioOutput {}
+        source: "./video-01.mov"
         videoOutput: videoOutput
         loops: MediaPlayer.Infinite
     }

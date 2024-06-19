@@ -7,4 +7,5 @@ Install QT on ubuntu arm64 processor
     $ qmlscene /path/to/application.qml  # linux
     $ qml /path/to/application.qml  # mac
 
-3. Next Steps?
+3. Troubleshooting:
+    Error: 
